@@ -4,7 +4,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
-
+const CopyPlugin = require('copy-webpack-plugin');
 module.exports = options => ({
   mode: options.mode,
   entry: options.entry,
@@ -114,6 +114,33 @@ module.exports = options => ({
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
     }),
+    new CopyPlugin([
+      {
+        from: 'app/privacy-policy.html',
+        to: path.resolve(process.cwd(), 'build'),
+        toType: 'dir',
+      },
+      {
+        from: 'app/terms-and-conditions.html',
+        to: path.resolve(process.cwd(), 'build'),
+        toType: 'dir',
+      },
+      {
+        from: 'app/remove-app.html',
+        to: path.resolve(process.cwd(), 'build'),
+        toType: 'dir',
+      },
+      {
+        from: 'app/google8fa337112b29e2b7.html',
+        to: path.resolve(process.cwd(), 'build'),
+        toType: 'dir',
+      },
+      {
+        from: 'app/googlea60f97ac58b65c03.html',
+        to: path.resolve(process.cwd(), 'build'),
+        toType: 'dir',
+      },
+    ]),
   ]),
   resolve: {
     modules: ['node_modules', 'app'],
