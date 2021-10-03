@@ -34,46 +34,57 @@ const AppWrapper = styled.div`
 const ContentWrapper = styled.div`
   display: flex;
   background-color: #fff;
-  min-height: 56px;
   margin: 0 auto;
-  height: calc(100vh - 20px);
-  margin-top: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 3px 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   @media ${device.mobileS} {
     margin-top: 0;
     width: 100%;
+    height: calc(100vh);
   }
   @media ${device.mobileL} {
     margin-top: 0;
     width: 100%;
+    height: calc(100vh);
   }
   @media ${device.mobileM} {
     margin-top: 0;
     width: 100%;
+    height: calc(100vh);
   }
   @media ${device.tablet} {
     margin-top: 0;
     width: 100%;
+    height: calc(100vh);
   }
   @media ${device.laptop} {
     width: 768px;
     bottom: 20px;
     border-radius: 5px;
+    height: calc(100vh - 40px);
+    margin-top: 20px;
   }
   @media ${device.laptopL} {
     width: 768px;
     bottom: 20px;
     border-radius: 5px;
+    height: calc(100vh - 40px);
+    margin-top: 20px;
   }
   @media ${device.desktop} {
     width: 768px;
     bottom: 20px;
     border-radius: 5px;
+    height: calc(100vh - 40px);
+    margin-top: 20px;
   }
   @media ${device.desktopL} {
     width: 768px;
     bottom: 20px;
     border-radius: 5px;
+    height: calc(100vh - 40px);
+    margin-top: 20px;
   }
 `;
 const LeftSideAd = styled.div`

@@ -43,24 +43,32 @@ const Wrapper = styled.header`
     height: 75px;
   }
   @media ${device.laptop} {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     top: 20px;
     left: calc((${width}px - 768px) / 2);
     width: 768px;
     height: 75px;
   }
   @media ${device.laptopL} {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     top: 20px;
     left: calc((${width}px - 768px) / 2);
     width: 768px;
     height: 75px;
   }
   @media ${device.desktop} {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     top: 20px;
     left: calc((${width}px - 768px) / 2);
     width: 768px;
     height: 75px;
   }
   @media ${device.desktopL} {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     top: 20px;
     left: calc((${width}px - 768px) / 2);
     width: 768px;

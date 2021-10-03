@@ -11,7 +11,7 @@ import { getWindowDimensions, isMobile } from '../../utils/styles';
 const mobile = isMobile();
 const { width } = getWindowDimensions();
 const Title = styled.p`
-  font-size: 24px;
+  font-size: 20px;
   color: #fff;
   text-align: center;
   width: 100%;
