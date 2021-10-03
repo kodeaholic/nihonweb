@@ -22,16 +22,19 @@ const Wrapper = styled.header`
     top: 0;
     margin-top: 0;
     width: 100%;
+    height: 56px;
   }
   @media ${device.mobileL} {
     top: 0;
     margin-top: 0;
     width: 100%;
+    height: 56px;
   }
   @media ${device.mobileM} {
     top: 0;
     margin-top: 0;
     width: 100%;
+    height: 56px;
   }
   @media ${device.tablet} {
     top: 0;
