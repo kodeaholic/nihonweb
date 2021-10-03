@@ -18,6 +18,7 @@ import Footer from 'components/Footer';
 
 import GlobalStyle from '../../global-styles';
 import { device, getWindowDimensions, isMobile } from '../../utils/styles';
+import Header from '../../components/Header';
 
 // eslint-disable-next-line no-unused-vars
 const { width, height } = getWindowDimensions();
@@ -35,42 +36,44 @@ const ContentWrapper = styled.div`
   background-color: #fff;
   min-height: 56px;
   margin: 0 auto;
+  height: calc(100vh - 20px);
+  margin-top: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 3px 0px;
   @media ${device.mobileS} {
+    margin-top: 0;
     width: 100%;
   }
   @media ${device.mobileL} {
+    margin-top: 0;
     width: 100%;
   }
   @media ${device.mobileM} {
+    margin-top: 0;
     width: 100%;
   }
   @media ${device.tablet} {
+    margin-top: 0;
     width: 100%;
-    height: 75px;
   }
   @media ${device.laptop} {
     width: 768px;
     bottom: 20px;
     border-radius: 5px;
-    height: 75px;
   }
   @media ${device.laptopL} {
     width: 768px;
     bottom: 20px;
     border-radius: 5px;
-    height: 75px;
   }
   @media ${device.desktop} {
     width: 768px;
     bottom: 20px;
     border-radius: 5px;
-    height: 75px;
   }
   @media ${device.desktopL} {
     width: 768px;
     bottom: 20px;
     border-radius: 5px;
-    height: 75px;
   }
 `;
 const LeftSideAd = styled.div`
@@ -108,6 +111,7 @@ export default function App() {
       >
         <meta name="description" content="A React.js Boilerplate application" />
       </Helmet>
+      <Header />
       <ContentWrapper>
         <Switch>
           <Route exact path="/" component={HomePage} />

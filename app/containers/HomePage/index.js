@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /*
  * HomePage
  *
@@ -60,22 +61,14 @@ export function HomePage({
   return (
     <article>
       <Helmet>
-        <title>Home Page</title>
+        <title>Nihongo365</title>
         <meta
           name="description"
-          content="A React.js Boilerplate application homepage"
+          content="Nền tảng học tiếng Nhật số 1 Việt Nam"
         />
       </Helmet>
       <div>
-        <CenteredSection>
-          <H2>
-            <FormattedMessage {...messages.startProjectHeader} />
-          </H2>
-          <p>
-            <FormattedMessage {...messages.startProjectMessage} />
-          </p>
-        </CenteredSection>
-        <Section>
+        {/* <Section>
           <H2>
             <FormattedMessage {...messages.trymeHeader} />
           </H2>
@@ -95,7 +88,7 @@ export function HomePage({
             </label>
           </Form>
           <ReposList {...reposListProps} />
-        </Section>
+        </Section> */}
       </div>
     </article>
   );
