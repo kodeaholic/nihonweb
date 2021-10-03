@@ -12,7 +12,6 @@ const Wrapper = styled.header`
   justify-content: center;
   justify-content: space-between;
   position: fixed;
-  top: 20px;
   background-color: #5cdb5e;
   color: #fff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -41,27 +40,27 @@ const Wrapper = styled.header`
     height: 75px;
   }
   @media ${device.laptop} {
+    top: 20px;
     left: calc((${width}px - 768px) / 2);
     width: 768px;
-    bottom: 20px;
     height: 75px;
   }
   @media ${device.laptopL} {
+    top: 20px;
     left: calc((${width}px - 768px) / 2);
     width: 768px;
-    bottom: 20px;
     height: 75px;
   }
   @media ${device.desktop} {
+    top: 20px;
     left: calc((${width}px - 768px) / 2);
     width: 768px;
-    bottom: 20px;
     height: 75px;
   }
   @media ${device.desktopL} {
+    top: 20px;
     left: calc((${width}px - 768px) / 2);
     width: 768px;
-    bottom: 20px;
     height: 75px;
   }
 `;
