@@ -73,6 +73,29 @@ const ContentWrapper = styled.div`
     height: 75px;
   }
 `;
+const LeftSideAd = styled.div`
+  height: calc(100vh - 40px);
+  max-width: calc(${(width - 768) / 2}px - 20px);
+  width: calc(${width / 5}px);
+  position: fixed;
+  left: 0;
+  top: 20px;
+  border: 1px solid gray;
+  text-align: center;
+  vertical-align: middle;
+`;
+
+const RightSideAd = styled.div`
+  height: calc(100vh - 40px);
+  max-width: calc(${(width - 768) / 2}px - 20px);
+  width: calc(${width / 5}px);
+  position: fixed;
+  right: 0;
+  top: 20px;
+  border: 1px solid gray;
+  text-align: center;
+  vertical-align: middle;
+`;
 
 export default function App() {
   // eslint-disable-next-line no-unused-vars
@@ -92,6 +115,8 @@ export default function App() {
           <Route path="" component={NotFoundPage} />
         </Switch>
       </ContentWrapper>
+      {!mobile && <LeftSideAd>Ads here</LeftSideAd>}
+      {!mobile && <RightSideAd>Ads here</RightSideAd>}
       <Footer />
       <GlobalStyle />
     </AppWrapper>
