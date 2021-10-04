@@ -97,6 +97,18 @@ const LeftSideAd = styled.div`
   border: 1px solid gray;
   text-align: center;
   vertical-align: middle;
+  @media ${device.mobileS} {
+    display: none;
+  }
+  @media ${device.mobileL} {
+    display: none;
+  }
+  @media ${device.mobileM} {
+    display: none;
+  }
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 
 const RightSideAd = styled.div`
@@ -109,6 +121,18 @@ const RightSideAd = styled.div`
   border: 1px solid gray;
   text-align: center;
   vertical-align: middle;
+  @media ${device.mobileS} {
+    display: none;
+  }
+  @media ${device.mobileL} {
+    display: none;
+  }
+  @media ${device.mobileM} {
+    display: none;
+  }
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 
 export default function App() {
