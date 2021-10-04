@@ -116,11 +116,12 @@ module.exports = require('./webpack.base.babel')({
     }),
 
     new WebpackPwaManifest({
-      name: 'React Boilerplate',
-      short_name: 'React BP',
-      description: 'My React Boilerplate-based project!',
+      name: 'Nihongo365 - Học và luyện thi JLPT',
+      short_name: 'Nihongo365',
+      description:
+        'Nihongo365 - Ứng dụng học và luyện thi tiếng Nhật hàng đầu Việt Nam!',
       background_color: '#fafafa',
-      theme_color: '#b1624d',
+      theme_color: '#5cdb5e',
       inject: true,
       ios: true,
       icons: [
