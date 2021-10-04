@@ -36,8 +36,8 @@ const ContentWrapper = styled.div`
   background-color: #fff;
   margin: 0 auto;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 3px 0px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  /* border-top-left-radius: 5px;
+  border-top-right-radius: 5px; */
   @media ${device.mobileS} {
     margin-top: 0;
     width: 100%;
@@ -59,34 +59,23 @@ const ContentWrapper = styled.div`
     height: calc(100vh);
   }
   @media ${device.laptop} {
-    width: 768px;
-    bottom: 20px;
-    border-radius: 5px;
-    height: calc(100vh - 40px);
-    margin-top: 20px;
+    width: 100%;
+    height: calc(100vh);
   }
   @media ${device.laptopL} {
-    width: 768px;
-    bottom: 20px;
-    border-radius: 5px;
-    height: calc(100vh - 40px);
-    margin-top: 20px;
+    width: 100%;
+    height: calc(100vh);
   }
   @media ${device.desktop} {
-    width: 768px;
-    bottom: 20px;
-    border-radius: 5px;
-    height: calc(100vh - 40px);
-    margin-top: 20px;
+    width: 1024px;
+    height: calc(100vh);
   }
   @media ${device.desktopL} {
-    width: 768px;
-    bottom: 20px;
-    border-radius: 5px;
-    height: calc(100vh - 40px);
-    margin-top: 20px;
+    width: 1024px;
+    height: calc(100vh);
   }
 `;
+// eslint-disable-next-line no-unused-vars
 const LeftSideAd = styled.div`
   height: calc(100vh - 40px);
   max-width: calc(${(width - 768) / 2}px - 20px);
@@ -111,6 +100,7 @@ const LeftSideAd = styled.div`
   }
 `;
 
+// eslint-disable-next-line no-unused-vars
 const RightSideAd = styled.div`
   height: calc(100vh - 40px);
   max-width: calc(${(width - 768) / 2}px - 20px);
@@ -154,8 +144,8 @@ export default function App() {
           <Route path="" component={NotFoundPage} />
         </Switch>
       </ContentWrapper>
-      {!mobile && <LeftSideAd>Ads here</LeftSideAd>}
-      {!mobile && <RightSideAd>Ads here</RightSideAd>}
+      {/* {!mobile && <LeftSideAd>Ads here</LeftSideAd>} */}
+      {/* {!mobile && <RightSideAd>Ads here</RightSideAd>} */}
       <Footer />
       <GlobalStyle />
     </AppWrapper>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import styled from 'styled-components';
 import {
   device,
@@ -40,39 +41,31 @@ const Wrapper = styled.header`
     top: 0;
     margin-top: 0;
     width: 100%;
-    height: 75px;
+    height: 56px;
   }
   @media ${device.laptop} {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    top: 20px;
-    left: calc((${width}px - 768px) / 2);
-    width: 768px;
-    height: 75px;
+    top: 0;
+    margin-top: 0;
+    width: 100%;
+    height: 56px;
   }
   @media ${device.laptopL} {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    top: 20px;
-    left: calc((${width}px - 768px) / 2);
-    width: 768px;
-    height: 75px;
+    top: 0;
+    margin-top: 0;
+    width: 100%;
+    height: 56px;
   }
   @media ${device.desktop} {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    top: 20px;
-    left: calc((${width}px - 768px) / 2);
-    width: 768px;
-    height: 75px;
+    top: 0;
+    margin-top: 0;
+    width: 100%;
+    height: 56px;
   }
   @media ${device.desktopL} {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    top: 20px;
-    left: calc((${width}px - 768px) / 2);
-    width: 768px;
-    height: 75px;
+    top: 0;
+    margin-top: 0;
+    width: 100%;
+    height: 56px;
   }
 `;
 
