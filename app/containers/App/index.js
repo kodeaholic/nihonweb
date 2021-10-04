@@ -38,7 +38,7 @@ const ContentWrapper = styled.div`
   display: flex;
   background-color: #fff;
   margin: 0 0 56px 0;
-  padding: 10px 10px 56px 10px;
+  /* padding: 10px 10px 56px 20px; */
   box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 3px 0px;
   overflow-y: scroll;
   &::-webkit-scrollbar {
