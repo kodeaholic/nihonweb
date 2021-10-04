@@ -20,12 +20,15 @@ const Wrapper = styled.footer`
   margin: 0 auto;
   @media ${device.mobileS} {
     width: 100%;
+    height: 56px;
   }
   @media ${device.mobileL} {
     width: 100%;
+    height: 56px;
   }
   @media ${device.mobileM} {
     width: 100%;
+    height: 56px;
   }
   @media ${device.tablet} {
     width: 100%;

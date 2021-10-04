@@ -53,7 +53,7 @@ function Footer() {
       </ItemWrapper>
       <ItemWrapper>
         <IconWrapper className="material-icons">face</IconWrapper>
-        <ItemLabel>Cá nhân</ItemLabel>
+        <ItemLabel>Tài khoản</ItemLabel>
       </ItemWrapper>
     </Wrapper>
   );
