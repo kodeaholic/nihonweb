@@ -15,18 +15,24 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Footer from 'components/Footer';
 
 import GlobalStyle from '../../global-styles';
-import { device, getWindowDimensions, isMobile } from '../../utils/styles';
+import {
+  device,
+  getInnerHeight,
+  getWindowDimensions,
+  isMobile,
+} from '../../utils/styles';
 import Header from '../../components/Header';
 import ProgramPage from '../ProgramPage/Loadable';
 
 // eslint-disable-next-line no-unused-vars
-const { width, height } = getWindowDimensions();
-
+const { width } = getWindowDimensions();
+const height = getInnerHeight();
+console.log(height);
 const AppWrapper = styled.div`
   width: calc(100vw);
   margin: 0 auto;
   display: flex;
-  height: calc(100vh);
+  height: calc(${height}px);
   padding: 0;
 `;
 
@@ -69,43 +75,43 @@ const ContentWrapper = styled.div`
   @media ${device.mobileS} {
     margin-top: 0;
     width: 100%;
-    height: calc(100vh - 56px * 2);
+    height: calc(${height}px - 56px * 2);
   }
   @media ${device.mobileL} {
     margin-top: 0;
     width: 100%;
-    height: calc(100vh - 56px * 2);
+    height: calc(${height}px - 56px * 2);
   }
   @media ${device.mobileM} {
     margin-top: 0;
     width: 100%;
-    height: calc(100vh - 56px * 2);
+    height: calc(${height}px - 56px * 2);
   }
   @media ${device.tablet} {
     margin-top: 0;
     width: 100%;
-    height: calc(100vh - 56px - 75px);
+    height: calc(${height}px - 56px - 75px);
   }
   @media ${device.laptop} {
     width: 100%;
-    height: calc(100vh - 56px);
+    height: calc(${height}px - 56px);
   }
   @media ${device.laptopL} {
     width: 100%;
-    height: calc(100vh - 56px);
+    height: calc(${height}px - 56px);
   }
   @media ${device.desktop} {
     width: 1024px;
-    height: calc(100vh - 56px);
+    height: calc(${height}px - 56px);
   }
   @media ${device.desktopL} {
     width: 1024px;
-    height: calc(100vh - 56px);
+    height: calc(${height}px - 56px);
   }
 `;
 // eslint-disable-next-line no-unused-vars
 const LeftSideAd = styled.div`
-  height: calc(100vh - 40px);
+  height: calc(${height}px - 40px);
   max-width: calc(${(width - 768) / 2}px - 20px);
   width: calc(${width / 5}px);
   position: fixed;
@@ -130,7 +136,7 @@ const LeftSideAd = styled.div`
 
 // eslint-disable-next-line no-unused-vars
 const RightSideAd = styled.div`
-  height: calc(100vh - 40px);
+  height: calc(${height}px - 40px);
   max-width: calc(${(width - 768) / 2}px - 20px);
   width: calc(${width / 5}px);
   position: fixed;

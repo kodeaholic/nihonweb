@@ -75,3 +75,5 @@ export const isMobile = () => {
   }
   return mobile;
 };
+
+export const getInnerHeight = () => window.innerHeight;
