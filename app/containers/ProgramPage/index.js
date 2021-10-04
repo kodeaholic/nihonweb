@@ -54,7 +54,7 @@ const MenuItem = styled.div`
   justify-content: center;
   text-align: center;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: #fff;
   @media ${device.mobileS} {
     width: calc(${width - 10}px);
