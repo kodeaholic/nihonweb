@@ -61,7 +61,7 @@ export function HomePage({
   return (
     <article>
       <Helmet>
-        <title>Nihongo365</title>
+        <title>Chương trình học</title>
         <meta
           name="description"
           content="Nền tảng học tiếng Nhật số 1 Việt Nam"

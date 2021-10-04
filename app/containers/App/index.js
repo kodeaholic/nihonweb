@@ -131,10 +131,25 @@ export default function App() {
   return (
     <AppWrapper>
       <Helmet
-        titleTemplate="%s - React.js Boilerplate"
-        defaultTitle="React.js Boilerplate"
+        titleTemplate="%s | Nihongo365"
+        defaultTitle="Nihongo365 | Học và luyện thi tiếng Nhật JLPT N5, N4, N3, N2, N1"
       >
-        <meta name="description" content="A React.js Boilerplate application" />
+        <meta
+          name="description"
+          content="Nihongo365 hướng tới trở thành nền tảng học tiếng Nhật số 1 Việt Nam và luyện thi JLPT N5, N4, N3, N2, N1. Bạn và tôi, chúng ta sẽ cùng nhau chinh phục Nhật Bản."
+        />
+        <link
+          href="https://www.facebook.com/Nihongo365.tiengnhatonline"
+          rel="me"
+        />
+        <link
+          href="https://www.facebook.com/Nihongo365.tiengnhatonline"
+          rel="author"
+        />
+        <link
+          href="https://www.facebook.com/Nihongo365.tiengnhatonline"
+          rel="publisher"
+        />
       </Helmet>
       <Header />
       <ContentWrapper>
