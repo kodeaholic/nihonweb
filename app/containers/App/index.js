@@ -9,9 +9,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
-import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Footer from 'components/Footer';
 
@@ -183,8 +182,10 @@ export default function App() {
       <Header />
       <ContentWrapper>
         <Switch>
-          <Route exact path="/" component={ProgramPage} />
-          <Route path="/features" component={FeaturePage} />
+          <Route exact path="/">
+            <Redirect to="/learn" />
+          </Route>
+          <Route exact path="/learn" component={ProgramPage} />
           <Route path="" component={NotFoundPage} />
         </Switch>
       </ContentWrapper>

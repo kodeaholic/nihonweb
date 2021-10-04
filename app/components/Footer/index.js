@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useLocation, withRouter } from 'react-router-dom';
+// import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
-import A from 'components/A';
-import LocaleToggle from 'containers/LocaleToggle';
+// import A from 'components/A';
+// import LocaleToggle from 'containers/LocaleToggle';
 import Wrapper from './Wrapper';
-import messages from './messages';
+// import messages from './messages';
 import { isMobile } from '../../utils/styles';
 
 const mobile = isMobile();
@@ -28,11 +29,21 @@ const ItemLabel = styled.span`
   text-align: center;
 `;
 function Footer() {
+  const { pathname } = window.location;
   return (
     <Wrapper>
       <ItemWrapper>
-        <IconWrapper className="material-icons">assignment</IconWrapper>
-        <ItemLabel>Học</ItemLabel>
+        <IconWrapper
+          className="material-icons"
+          style={{ color: pathname.includes('learn') ? '#5cdb5e' : '#95a5a6' }}
+        >
+          assignment
+        </IconWrapper>
+        <ItemLabel
+          style={{ color: pathname.includes('learn') ? '#5cdb5e' : '#95a5a6' }}
+        >
+          Học
+        </ItemLabel>
       </ItemWrapper>
       <ItemWrapper>
         <IconWrapper className="material-icons">g_translate</IconWrapper>
@@ -59,4 +70,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default withRouter(Footer);
