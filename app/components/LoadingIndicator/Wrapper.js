@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  margin: 2em auto;
+  margin: 0;
   width: 40px;
   height: 40px;
-  position: relative;
+  position: fixed;
+  top: calc(50vh - 20px);
+  left: calc(50vw - 20px);
 `;
 
 export default Wrapper;
