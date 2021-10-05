@@ -1,11 +1,11 @@
 /*
- * ProgramPage
+ * LevelPage
  *
  * List all the features
  */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {
   device,
@@ -27,7 +27,7 @@ const Menu = styled.div`
   width: calc(100%);
   height: calc(100%);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   margin: 0 auto;
   align-items: 'center';
@@ -75,7 +75,7 @@ const LinkItem = styled(Link)`
   &:visited,
   &:link,
   &:active {
-    text-decoration: none;
+    text-decoration: none !important;
   }
   & > span {
     color: #000;
@@ -87,54 +87,56 @@ const LinkItem = styled(Link)`
   border-radius: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: #fff;
+  flex: 1;
   @media ${device.mobileS} {
-    width: calc(${width - 10}px);
+    width: calc(${width - 20}px);
     margin: 10px;
     height: 80px;
   }
   @media ${device.mobileL} {
-    width: calc(${width - 10}px);
+    width: calc(${width - 20}px);
     margin: 10px;
     height: 80px;
   }
   @media ${device.mobileM} {
-    width: calc(${width - 10}px);
+    width: calc(${width - 20}px);
     margin: 10px;
     height: 80px;
   }
   @media ${device.tablet} {
-    width: 100%;
+    width: calc(${width - 20}px);
+    margin: 10px;
     height: 80px;
   }
   @media ${device.laptop} {
-    width: calc(${(768 - 40) / 2}px);
+    width: calc(${768 - 20}px);
     height: 80px;
   }
   @media ${device.laptopL} {
-    width: calc(${(768 - 40) / 2}px);
+    width: calc(${768 - 20}px);
     height: 80px;
   }
   @media ${device.desktop} {
-    width: calc(${(768 - 40) / 2}px);
+    width: calc(${768 - 20}px);
     height: 80px;
   }
   @media ${device.desktopL} {
-    width: calc(${(768 - 40) / 2}px);
+    width: calc(${768 - 20}px);
     height: 80px;
   }
 `;
-export default function ProgramPage() {
+export default function LevelPage() {
   return (
     <>
       <Helmet>
-        <title>Học và thi</title>
+        <title>Lựa chọn trình độ</title>
         <meta
           name="description"
           content="Học tiếng Nhật Nihongo365 mỗi ngày và luyện thi JLPT N5, N4, N3, N2, N1. Nihongo365 giúp bạn học từ vựng, kanji, ngữ pháp, nghe, hội thoại, đọc hiểu. Bên cạnh đó luyện thi theo format đề thi JLPQ quốc tế"
         />
       </Helmet>
       <Menu>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
+        <LinkItem to="/hoc/trinh-do-N5" onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/vocab-icon.png')}
@@ -143,10 +145,9 @@ export default function ProgramPage() {
             height="48"
             style={{ margin: 10 }}
           />
-          <span>Từ vựng</span>
+          <span>N5</span>
         </LinkItem>
-
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
+        <LinkItem to="/hoc/trinh-do-N4" onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/kanji.png')}
@@ -155,9 +156,9 @@ export default function ProgramPage() {
             height="48"
             style={{ margin: 10 }}
           />
-          <span>Kanji</span>
+          <span>N4</span>
         </LinkItem>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
+        <LinkItem to="/hoc/trinh-do-N3" onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/grammar-icon.png')}
@@ -166,9 +167,9 @@ export default function ProgramPage() {
             height="70"
             style={{ margin: 10 }}
           />
-          <span>Ngữ pháp</span>
+          <span>N3</span>
         </LinkItem>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
+        <LinkItem to="/hoc/trinh-do-N2" onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/listening-icon.png')}
@@ -177,9 +178,9 @@ export default function ProgramPage() {
             height="48"
             style={{ margin: 10 }}
           />
-          <span>Luyện nghe</span>
+          <span>N2</span>
         </LinkItem>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
+        <LinkItem to="/hoc/trinh-do-N1" onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/speaking.png')}
@@ -188,40 +189,7 @@ export default function ProgramPage() {
             height="48"
             style={{ margin: 10 }}
           />
-          <span>Luyện hội thoại</span>
-        </LinkItem>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
-          <img
-            // eslint-disable-next-line global-require
-            src={require('../../images/reading.png')}
-            alt="Luyện đọc JLPT"
-            width="auto"
-            height="48"
-            style={{ margin: 10 }}
-          />
-          <span>Luyện đọc</span>
-        </LinkItem>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
-          <img
-            // eslint-disable-next-line global-require
-            src={require('../../images/test.png')}
-            alt="Luyện thi JLPT"
-            width="auto"
-            height="70"
-            style={{ margin: 10 }}
-          />
-          <span>Luyện thi</span>
-        </LinkItem>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
-          <img
-            // eslint-disable-next-line global-require
-            src={require('../../images/jlpt.png')}
-            alt="Thi thử JLPT"
-            width="auto"
-            height="48"
-            style={{ margin: 10 }}
-          />
-          <span>Thi thử</span>
+          <span>N1</span>
         </LinkItem>
         <BottomSeperator />
       </Menu>

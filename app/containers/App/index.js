@@ -23,6 +23,7 @@ import {
 } from '../../utils/styles';
 import Header from '../../components/Header';
 import ProgramPage from '../ProgramPage/Loadable';
+import LevelPage from '../LevelPage/Loadable';
 
 // eslint-disable-next-line no-unused-vars
 const { width } = getWindowDimensions();
@@ -45,7 +46,7 @@ const ContentWrapper = styled.div`
   margin: 0 0 56px 0;
   /* padding: 10px 10px 56px 20px; */
   box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 3px 0px;
-  overflow-y: scroll;
+  overflow-y: auto;
   &::-webkit-scrollbar {
     width: 10px;
   }
@@ -192,6 +193,7 @@ export default function App() {
             <Redirect to="/hoc" />
           </Route>
           <Route exact path="/hoc" component={ProgramPage} />
+          <Route exact path="/hoc/trinh-do" component={LevelPage} />
           <Route path="" component={NotFoundPage} />
         </Switch>
       </ContentWrapper>

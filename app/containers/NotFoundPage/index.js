@@ -11,7 +11,12 @@ export default function NotFound() {
     <article
       style={{ alignItems: 'center', textAlign: 'center', width: '100%' }}
     >
-      <h3 style={{ textAlign: 'center' }}>Trang không tồn tại</h3>
+      <h4 style={{ textAlign: 'center' }}>
+        Trang không tồn tại{' '}
+        <span role="img" aria-label="icon">
+          &#128579;
+        </span>
+      </h4>
     </article>
   );
 }
