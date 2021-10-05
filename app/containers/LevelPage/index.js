@@ -28,7 +28,6 @@ const Menu = styled.div`
   height: calc(100%);
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   margin: 0 auto;
   align-items: 'center';
   justify-content: 'center';
@@ -91,17 +90,17 @@ const LinkItem = styled(Link)`
   @media ${device.mobileS} {
     width: calc(${width - 20}px);
     margin: 10px;
-    height: 80px;
+    /* height: 80px; */
   }
   @media ${device.mobileL} {
     width: calc(${width - 20}px);
     margin: 10px;
-    height: 80px;
+    /* height: 80px; */
   }
   @media ${device.mobileM} {
     width: calc(${width - 20}px);
     margin: 10px;
-    height: 80px;
+    /* height: 80px; */
   }
   @media ${device.tablet} {
     width: calc(${width - 20}px);
@@ -139,57 +138,122 @@ export default function LevelPage() {
         <LinkItem to="/hoc/trinh-do-N5" onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
-            src={require('../../images/vocab-icon.png')}
+            src={require('../../images/N5.png')}
             alt="Từ vựng tiếng Nhật Nihongo365"
-            width="48"
-            height="48"
-            style={{ margin: 10 }}
+            width="auto"
+            // height="70"
+            style={{ margin: 10, height: '32px' }}
           />
-          <span>N5</span>
+          <span
+            style={{
+              borderRadius: '50%',
+              border: '2px solid',
+              borderColor: 'rgba(241, 130, 141,1)',
+              width: 30,
+              height: 30,
+              display: 'flex' /* or inline-flex */,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            N5
+          </span>
         </LinkItem>
         <LinkItem to="/hoc/trinh-do-N4" onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
-            src={require('../../images/kanji.png')}
+            src={require('../../images/N4.png')}
             alt="Kanji Nihongo365"
-            width="48"
-            height="48"
-            style={{ margin: 10 }}
+            width="auto"
+            // height="70"
+            style={{ margin: 10, height: '48px' }}
           />
-          <span>N4</span>
+          <span
+            style={{
+              borderRadius: '50%',
+              border: '2px solid',
+              borderColor: 'rgba(165, 55, 253, 1)',
+              width: 30,
+              height: 30,
+              display: 'flex' /* or inline-flex */,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            N4
+          </span>
         </LinkItem>
         <LinkItem to="/hoc/trinh-do-N3" onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
-            src={require('../../images/grammar-icon.png')}
+            src={require('../../images/N3.png')}
             alt="Ngữ pháp Nihongo365"
             width="auto"
-            height="70"
-            style={{ margin: 10 }}
+            // height="70"
+            style={{ margin: 10, height: '48px' }}
           />
-          <span>N3</span>
+          <span
+            style={{
+              borderRadius: '50%',
+              border: '2px solid',
+              borderColor: 'rgba(0, 181, 204, 1)',
+              width: 30,
+              height: 30,
+              display: 'flex' /* or inline-flex */,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            N3
+          </span>
         </LinkItem>
         <LinkItem to="/hoc/trinh-do-N2" onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
-            src={require('../../images/listening-icon.png')}
+            src={require('../../images/N2.png')}
             alt="Luyện nghe JLPT"
             width="auto"
-            height="48"
-            style={{ margin: 10 }}
+            // height="70"
+            style={{ margin: 10, height: '48px' }}
           />
-          <span>N2</span>
+          <span
+            style={{
+              borderRadius: '50%',
+              border: '2px solid',
+              borderColor: 'rgba(63, 195, 128, 1)',
+              width: 30,
+              height: 30,
+              display: 'flex' /* or inline-flex */,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            N2
+          </span>
         </LinkItem>
         <LinkItem to="/hoc/trinh-do-N1" onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
-            src={require('../../images/speaking.png')}
+            src={require('../../images/N1.png')}
             alt="Luyện hội thoại JLPT"
             width="auto"
-            height="48"
-            style={{ margin: 10 }}
+            // height="70"
+            style={{ margin: 10, height: '48px' }}
           />
-          <span>N1</span>
+          <span
+            style={{
+              borderRadius: '50%',
+              border: '2px solid',
+              borderColor: 'rgba(241, 90, 34, 1)',
+              width: 30,
+              height: 30,
+              display: 'flex' /* or inline-flex */,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            N1
+          </span>
         </LinkItem>
         <BottomSeperator />
       </Menu>
