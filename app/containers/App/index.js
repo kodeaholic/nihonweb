@@ -189,9 +189,9 @@ export default function App() {
       <ContentWrapper>
         <Switch>
           <Route exact path="/">
-            <Redirect to="/learn" />
+            <Redirect to="/hoc" />
           </Route>
-          <Route exact path="/learn" component={ProgramPage} />
+          <Route exact path="/hoc" component={ProgramPage} />
           <Route path="" component={NotFoundPage} />
         </Switch>
       </ContentWrapper>

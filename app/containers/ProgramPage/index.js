@@ -6,9 +6,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { device, getWindowDimensions } from '../../utils/styles';
+import {
+  device,
+  getInnerHeight,
+  getWindowDimensions,
+} from '../../utils/styles';
 // eslint-disable-next-line no-unused-vars
 const { width } = getWindowDimensions();
+const innerHeight = getInnerHeight();
 const BottomSeperator = styled.br`
   display: block;
   height: 10px;
@@ -24,6 +29,9 @@ const Menu = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0 auto;
+  align-items: 'center';
+  justify-content: 'center';
+  padding-top: 30px;
   @media ${device.mobileS} {
     width: 100%;
   }
@@ -37,12 +45,24 @@ const Menu = styled.div`
     width: 100%;
   }
   @media ${device.laptop} {
+    width: 768px;
+    margin-left: calc(50vw - ${786 / 2 - 10}px);
+    height: calc(${innerHeight - 20 - 70 - 56}px);
   }
   @media ${device.laptopL} {
+    width: 768px;
+    margin-left: calc(50vw - ${786 / 2 - 10}px);
+    height: calc(${innerHeight - 20 - 70 - 56}px);
   }
   @media ${device.desktop} {
+    width: 768px;
+    margin-left: calc(50vw - ${786 / 2 - 10}px);
+    height: calc(${innerHeight - 20 - 70 - 56}px);
   }
   @media ${device.desktopL} {
+    width: 768px;
+    margin-left: calc(50vw - ${786 / 2 - 10}px);
+    height: calc(${innerHeight - 20 - 70 - 56}px);
   }
 `;
 const MenuItem = styled.div`
@@ -76,32 +96,20 @@ const MenuItem = styled.div`
     height: 80px;
   }
   @media ${device.laptop} {
-    left: calc((${width}px - 400px) / 2);
-    width: 400px;
-    bottom: 20px;
-    border-radius: 5px;
-    height: 80px;
+    width: calc(${(768 - 40) / 2}px);
+    height: 120px;
   }
   @media ${device.laptopL} {
-    left: calc((${width}px - 400px) / 2);
-    width: 400px;
-    bottom: 20px;
-    border-radius: 5px;
-    height: 80px;
+    width: calc(${(768 - 40) / 2}px);
+    height: 120px;
   }
   @media ${device.desktop} {
-    left: calc((${width}px - 400px) / 2);
-    width: 400px;
-    bottom: 20px;
-    border-radius: 5px;
-    height: 80px;
+    width: calc(${(768 - 40) / 2}px);
+    height: 120px;
   }
   @media ${device.desktopL} {
-    left: calc((${width}px - 400px) / 2);
-    width: 400px;
-    bottom: 20px;
-    border-radius: 5px;
-    height: 80px;
+    width: calc(${(768 - 40) / 2}px);
+    height: 120px;
   }
 `;
 export default function ProgramPage() {

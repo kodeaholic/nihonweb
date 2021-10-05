@@ -35,12 +35,12 @@ function Footer() {
       <ItemWrapper>
         <IconWrapper
           className="material-icons"
-          style={{ color: pathname.includes('learn') ? '#5cdb5e' : '#95a5a6' }}
+          style={{ color: pathname.includes('hoc') ? '#5cdb5e' : '#95a5a6' }}
         >
           assignment
         </IconWrapper>
         <ItemLabel
-          style={{ color: pathname.includes('learn') ? '#5cdb5e' : '#95a5a6' }}
+          style={{ color: pathname.includes('hoc') ? '#5cdb5e' : '#95a5a6' }}
         >
           Học
         </ItemLabel>
