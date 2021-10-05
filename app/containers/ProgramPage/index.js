@@ -97,19 +97,19 @@ const MenuItem = styled.div`
   }
   @media ${device.laptop} {
     width: calc(${(768 - 40) / 2}px);
-    height: 120px;
+    height: 80px;
   }
   @media ${device.laptopL} {
     width: calc(${(768 - 40) / 2}px);
-    height: 120px;
+    height: 80px;
   }
   @media ${device.desktop} {
     width: calc(${(768 - 40) / 2}px);
-    height: 120px;
+    height: 80px;
   }
   @media ${device.desktopL} {
     width: calc(${(768 - 40) / 2}px);
-    height: 120px;
+    height: 80px;
   }
 `;
 export default function ProgramPage() {
