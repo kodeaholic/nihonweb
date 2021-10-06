@@ -3,15 +3,22 @@
  *
  * List all the features
  */
-import React from 'react';
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 import {
   device,
   getInnerHeight,
   getWindowDimensions,
 } from '../../utils/styles';
+import { makeSelectProgramId } from './selectors';
+import { programSelected } from './actions';
+import { PROGRAM_IDS } from './constants';
 // eslint-disable-next-line no-unused-vars
 const { width } = getWindowDimensions();
 const innerHeight = getInnerHeight();
@@ -123,7 +130,9 @@ const LinkItem = styled(Link)`
     height: 80px;
   }
 `;
-export default function ProgramPage() {
+export function ProgramPage(props) {
+  const { onProgramSelected } = props;
+  console.log(props);
   return (
     <>
       <Helmet>
@@ -134,7 +143,10 @@ export default function ProgramPage() {
         />
       </Helmet>
       <Menu>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
+        <LinkItem
+          to="/hoc/trinh-do"
+          onClick={() => onProgramSelected(PROGRAM_IDS.TUVUNG)}
+        >
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/vocab-icon.png')}
@@ -146,7 +158,10 @@ export default function ProgramPage() {
           <span>Từ vựng</span>
         </LinkItem>
 
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
+        <LinkItem
+          to="/hoc/trinh-do"
+          onClick={() => onProgramSelected(PROGRAM_IDS.CHUHAN)}
+        >
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/kanji.png')}
@@ -157,7 +172,10 @@ export default function ProgramPage() {
           />
           <span>Kanji</span>
         </LinkItem>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
+        <LinkItem
+          to="/hoc/trinh-do"
+          onClick={() => onProgramSelected(PROGRAM_IDS.GRAMMAR)}
+        >
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/grammar-icon.png')}
@@ -168,7 +186,10 @@ export default function ProgramPage() {
           />
           <span>Ngữ pháp</span>
         </LinkItem>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
+        <LinkItem
+          to="/hoc/trinh-do"
+          onClick={() => onProgramSelected(PROGRAM_IDS.NGHE)}
+        >
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/listening-icon.png')}
@@ -179,7 +200,10 @@ export default function ProgramPage() {
           />
           <span>Luyện nghe</span>
         </LinkItem>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
+        <LinkItem
+          to="/hoc/trinh-do"
+          onClick={() => onProgramSelected(PROGRAM_IDS.HOITHOAI)}
+        >
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/speaking.png')}
@@ -190,7 +214,10 @@ export default function ProgramPage() {
           />
           <span>Luyện hội thoại</span>
         </LinkItem>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
+        <LinkItem
+          to="/hoc/trinh-do"
+          onClick={() => onProgramSelected(PROGRAM_IDS.READING)}
+        >
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/reading.png')}
@@ -201,7 +228,10 @@ export default function ProgramPage() {
           />
           <span>Luyện đọc</span>
         </LinkItem>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
+        <LinkItem
+          to="/hoc/trinh-do"
+          onClick={() => onProgramSelected(PROGRAM_IDS.LUYENTHI)}
+        >
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/test.png')}
@@ -212,7 +242,10 @@ export default function ProgramPage() {
           />
           <span>Luyện thi</span>
         </LinkItem>
-        <LinkItem to="/hoc/trinh-do" onClick={() => alert('Clicked')}>
+        <LinkItem
+          to="/hoc/trinh-do"
+          onClick={() => onProgramSelected(PROGRAM_IDS.THITHU)}
+        >
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/jlpt.png')}
@@ -228,3 +261,27 @@ export default function ProgramPage() {
     </>
   );
 }
+
+ProgramPage.propTypes = {
+  onProgramSelected: PropTypes.func,
+};
+
+const mapStateToProps = createStructuredSelector({
+  programId: makeSelectProgramId(),
+});
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    onProgramSelected: id => dispatch(programSelected(id)),
+  };
+}
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+export default compose(
+  withConnect,
+  memo,
+)(ProgramPage);
