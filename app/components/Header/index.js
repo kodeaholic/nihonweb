@@ -38,14 +38,18 @@ const RightButton = styled.div`
 `;
 function Header(props) {
   const { history } = props;
+  const { pathname } = window.location;
   return (
     <Wrapper>
       <BackButton
         className="material-icons"
         onClick={() => {
-          if (history.action !== 'POP') history.goBack();
+          // if (history.action !== 'POP') history.goBack();
+          history.goBack();
         }}
-        style={{ color: history.action === 'POP' ? '#5cdb5e' : '#fff' }}
+        style={{
+          color: pathname === '/' ? '#5cdb5e' : '#fff',
+        }}
       >
         <span>arrow_back_ios</span>
       </BackButton>
