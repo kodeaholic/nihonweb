@@ -137,7 +137,7 @@ export default function LevelPage(props) {
         />
       </Helmet>
       <Menu>
-        <LinkItem to={`${pathname}/N5`} onClick={() => alert('Clicked')}>
+        <LinkItem to={`${pathname}/N5`}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/N5.png')}
@@ -161,7 +161,7 @@ export default function LevelPage(props) {
             N5
           </span>
         </LinkItem>
-        <LinkItem to={`${pathname}/N4`} onClick={() => alert('Clicked')}>
+        <LinkItem to={`${pathname}/N4`}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/N4.png')}
@@ -185,7 +185,7 @@ export default function LevelPage(props) {
             N4
           </span>
         </LinkItem>
-        <LinkItem to={`${pathname}/N3`} onClick={() => alert('Clicked')}>
+        <LinkItem to={`${pathname}/N3`}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/N3.png')}
@@ -209,7 +209,7 @@ export default function LevelPage(props) {
             N3
           </span>
         </LinkItem>
-        <LinkItem to={`${pathname}/N2`} onClick={() => alert('Clicked')}>
+        <LinkItem to={`${pathname}/N2`}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/N2.png')}
@@ -233,7 +233,7 @@ export default function LevelPage(props) {
             N2
           </span>
         </LinkItem>
-        <LinkItem to={`${pathname}/N1`} onClick={() => alert('Clicked')}>
+        <LinkItem to={`${pathname}/N1`}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/N1.png')}

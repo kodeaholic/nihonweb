@@ -11,7 +11,6 @@ const Wrapper = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  justify-content: space-between;
   position: fixed;
   background-color: #5cdb5e;
   color: #fff;
