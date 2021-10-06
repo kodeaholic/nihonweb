@@ -28,6 +28,23 @@ const ItemLabel = styled.span`
   font-size: ${mobile ? '14' : '14'}px;
   text-align: center;
 `;
+const isActive = (pathname, type) => {
+  switch (type) {
+    case 'program':
+      return (
+        pathname.includes('tu-vung') ||
+        pathname.includes('kanji') ||
+        pathname.includes('ngu-phap') ||
+        pathname.includes('luyen-nghe') ||
+        pathname.includes('hoi-thoai') ||
+        pathname.includes('luyen-doc') ||
+        pathname.includes('luyen-thi') ||
+        pathname.includes('thi-thu')
+      );
+    default:
+      return false;
+  }
+};
 function Footer() {
   const { pathname } = window.location;
   return (
@@ -35,12 +52,16 @@ function Footer() {
       <ItemWrapper>
         <IconWrapper
           className="material-icons"
-          style={{ color: pathname.includes('hoc') ? '#5cdb5e' : '#95a5a6' }}
+          style={{
+            color: isActive(pathname, 'program') ? '#5cdb5e' : '#95a5a6',
+          }}
         >
           assignment
         </IconWrapper>
         <ItemLabel
-          style={{ color: pathname.includes('hoc') ? '#5cdb5e' : '#95a5a6' }}
+          style={{
+            color: isActive(pathname, 'program') ? '#5cdb5e' : '#95a5a6',
+          }}
         >
           Học
         </ItemLabel>

@@ -144,7 +144,7 @@ export function ProgramPage(props) {
       </Helmet>
       <Menu>
         <LinkItem
-          to="/hoc/trinh-do"
+          to="/tu-vung"
           onClick={() => onProgramSelected(PROGRAM_IDS.TUVUNG)}
         >
           <img
@@ -159,7 +159,7 @@ export function ProgramPage(props) {
         </LinkItem>
 
         <LinkItem
-          to="/hoc/trinh-do"
+          to="/kanji"
           onClick={() => onProgramSelected(PROGRAM_IDS.CHUHAN)}
         >
           <img
@@ -173,7 +173,7 @@ export function ProgramPage(props) {
           <span>Kanji</span>
         </LinkItem>
         <LinkItem
-          to="/hoc/trinh-do"
+          to="/ngu-phap"
           onClick={() => onProgramSelected(PROGRAM_IDS.GRAMMAR)}
         >
           <img
@@ -187,7 +187,7 @@ export function ProgramPage(props) {
           <span>Ngữ pháp</span>
         </LinkItem>
         <LinkItem
-          to="/hoc/trinh-do"
+          to="/luyen-nghe"
           onClick={() => onProgramSelected(PROGRAM_IDS.NGHE)}
         >
           <img
@@ -201,7 +201,7 @@ export function ProgramPage(props) {
           <span>Luyện nghe</span>
         </LinkItem>
         <LinkItem
-          to="/hoc/trinh-do"
+          to="/hoi-thoai"
           onClick={() => onProgramSelected(PROGRAM_IDS.HOITHOAI)}
         >
           <img
@@ -215,7 +215,7 @@ export function ProgramPage(props) {
           <span>Luyện hội thoại</span>
         </LinkItem>
         <LinkItem
-          to="/hoc/trinh-do"
+          to="/luyen-doc"
           onClick={() => onProgramSelected(PROGRAM_IDS.READING)}
         >
           <img
@@ -229,7 +229,7 @@ export function ProgramPage(props) {
           <span>Luyện đọc</span>
         </LinkItem>
         <LinkItem
-          to="/hoc/trinh-do"
+          to="/luyen-thi"
           onClick={() => onProgramSelected(PROGRAM_IDS.LUYENTHI)}
         >
           <img
@@ -243,7 +243,7 @@ export function ProgramPage(props) {
           <span>Luyện thi</span>
         </LinkItem>
         <LinkItem
-          to="/hoc/trinh-do"
+          to="/thi-thu"
           onClick={() => onProgramSelected(PROGRAM_IDS.THITHU)}
         >
           <img

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  *
  * App
@@ -189,12 +190,21 @@ export default function App() {
       <Header />
       <ContentWrapper>
         <Switch>
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <Redirect to="/hoc" />
+          </Route> */}
+          <Route exact path="/" component={ProgramPage} />
+          <Route exact path="/tu-vung" component={LevelPage} />
+          <Route exact path="/kanji" component={LevelPage} />
+          <Route exact path="/ngu-phap" component={LevelPage} />
+          <Route exact path="/luyen-nghe" component={LevelPage} />
+          <Route exact path="/hoi-thoai" component={LevelPage} />
+          <Route exact path="/luyen-doc" component={LevelPage} />
+          <Route exact path="/luyen-thi" component={LevelPage} />
+          <Route exact path="/thi-thu" component={LevelPage} />
+          <Route path="" component={NotFoundPage}>
+            {/* <Redirect to="/" /> */}
           </Route>
-          <Route exact path="/hoc" component={ProgramPage} />
-          <Route exact path="/hoc/trinh-do" component={LevelPage} />
-          <Route path="" component={NotFoundPage} />
         </Switch>
       </ContentWrapper>
       {/* {!mobile && <LeftSideAd>Ads here</LeftSideAd>} */}
