@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /*
  * LevelPage
  *
@@ -124,7 +125,8 @@ const LinkItem = styled(Link)`
     height: 80px;
   }
 `;
-export default function LevelPage() {
+export default function LevelPage(props) {
+  const { pathname } = window.location;
   return (
     <>
       <Helmet>
@@ -135,7 +137,7 @@ export default function LevelPage() {
         />
       </Helmet>
       <Menu>
-        <LinkItem to="/hoc/trinh-do-N5" onClick={() => alert('Clicked')}>
+        <LinkItem to={`${pathname}/N5`} onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/N5.png')}
@@ -159,7 +161,7 @@ export default function LevelPage() {
             N5
           </span>
         </LinkItem>
-        <LinkItem to="/hoc/trinh-do-N4" onClick={() => alert('Clicked')}>
+        <LinkItem to={`${pathname}/N4`} onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/N4.png')}
@@ -183,7 +185,7 @@ export default function LevelPage() {
             N4
           </span>
         </LinkItem>
-        <LinkItem to="/hoc/trinh-do-N3" onClick={() => alert('Clicked')}>
+        <LinkItem to={`${pathname}/N3`} onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/N3.png')}
@@ -207,7 +209,7 @@ export default function LevelPage() {
             N3
           </span>
         </LinkItem>
-        <LinkItem to="/hoc/trinh-do-N2" onClick={() => alert('Clicked')}>
+        <LinkItem to={`${pathname}/N2`} onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/N2.png')}
@@ -231,7 +233,7 @@ export default function LevelPage() {
             N2
           </span>
         </LinkItem>
-        <LinkItem to="/hoc/trinh-do-N1" onClick={() => alert('Clicked')}>
+        <LinkItem to={`${pathname}/N1`} onClick={() => alert('Clicked')}>
           <img
             // eslint-disable-next-line global-require
             src={require('../../images/N1.png')}

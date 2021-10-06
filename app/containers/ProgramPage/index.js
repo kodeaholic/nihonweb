@@ -132,7 +132,6 @@ const LinkItem = styled(Link)`
 `;
 export function ProgramPage(props) {
   const { onProgramSelected } = props;
-  console.log(props);
   return (
     <>
       <Helmet>
