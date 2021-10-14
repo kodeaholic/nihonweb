@@ -32,14 +32,14 @@ const isActive = (pathname, type) => {
   switch (type) {
     case 'program':
       return (
-        pathname.includes('tu-vung') ||
-        pathname.includes('kanji') ||
-        pathname.includes('ngu-phap') ||
-        pathname.includes('luyen-nghe') ||
-        pathname.includes('hoi-thoai') ||
-        pathname.includes('luyen-doc') ||
-        pathname.includes('luyen-thi') ||
-        pathname.includes('thi-thu')
+        pathname.includes('hoc/tu-vung') ||
+        pathname.includes('hoc/kanji') ||
+        pathname.includes('hoc/ngu-phap') ||
+        pathname.includes('hoc/luyen-nghe') ||
+        pathname.includes('hoc/hoi-thoai') ||
+        pathname.includes('hoc/luyen-doc') ||
+        pathname.includes('hoc/luyen-thi') ||
+        pathname.includes('hoc/thi-thu')
       );
     default:
       return false;

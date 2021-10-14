@@ -190,18 +190,18 @@ export default function App() {
       <Header />
       <ContentWrapper>
         <Switch>
-          {/* <Route exact path="/">
+          <Route exact path="/">
             <Redirect to="/hoc" />
-          </Route> */}
-          <Route exact path="/" component={ProgramPage} />
-          <Route exact path="/tu-vung" component={LevelPage} />
-          <Route exact path="/kanji" component={LevelPage} />
-          <Route exact path="/ngu-phap" component={LevelPage} />
-          <Route exact path="/luyen-nghe" component={LevelPage} />
-          <Route exact path="/hoi-thoai" component={LevelPage} />
-          <Route exact path="/luyen-doc" component={LevelPage} />
-          <Route exact path="/luyen-thi" component={LevelPage} />
-          <Route exact path="/thi-thu" component={LevelPage} />
+          </Route>
+          <Route exact path="/hoc" component={ProgramPage} />
+          <Route exact path="/hoc/tu-vung" component={LevelPage} />
+          <Route exact path="/hoc/kanji" component={LevelPage} />
+          <Route exact path="/hoc/ngu-phap" component={LevelPage} />
+          <Route exact path="/hoc/luyen-nghe" component={LevelPage} />
+          <Route exact path="/hoc/hoi-thoai" component={LevelPage} />
+          <Route exact path="/hoc/luyen-doc" component={LevelPage} />
+          <Route exact path="/hoc/luyen-thi" component={LevelPage} />
+          <Route exact path="/hoc/thi-thu" component={LevelPage} />
           <Route path="" component={NotFoundPage}>
             {/* <Redirect to="/" /> */}
           </Route>

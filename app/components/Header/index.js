@@ -48,7 +48,7 @@ function Header(props) {
           history.goBack();
         }}
         style={{
-          color: pathname === '/' ? '#5cdb5e' : '#fff',
+          color: pathname === '/' || pathname === '/hoc' ? '#5cdb5e' : '#fff',
         }}
       >
         <span>arrow_back_ios</span>
