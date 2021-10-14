@@ -31,4 +31,15 @@ export const PROGRAM_SLUGS = {
   'thi-thu': 'Thi thử',
 };
 
+export const PROGRAM_API_ENDPOINTS = {
+  'tu-vung': 'vocabs?', // ?
+  kanji: 'boards?populate=cards?',
+  'ngu-phap': 'grammar?',
+  'luyen-nghe': 'listening-boards?',
+  'hoi-thoai': 'dialog-boards?',
+  'luyen-doc': 'reading-boards?',
+  'luyen-thi': 'sub-tests?',
+  'thi-thu': 'trial-tests?',
+};
+
 export const PROGRAM_SELECTED = 'boilerplate/ProgramPage/PROGRAM_SELECTED';

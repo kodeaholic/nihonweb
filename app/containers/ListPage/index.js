@@ -1,14 +1,19 @@
+/* eslint-disable no-empty */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import _ from 'lodash';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { apiConfig } from '../../config/apiConfig';
 import {
   device,
   getInnerHeight,
   getWindowDimensions,
 } from '../../utils/styles';
-import { PROGRAM_SLUGS } from '../ProgramPage/constants';
+import { PROGRAM_API_ENDPOINTS, PROGRAM_SLUGS } from '../ProgramPage/constants';
+import { authHeader } from '../../utils/authHeader';
 // eslint-disable-next-line no-unused-vars
 const { width } = getWindowDimensions();
 const innerHeight = getInnerHeight();
@@ -63,6 +68,7 @@ const Menu = styled.div`
   }
 `;
 const LinkItem = styled(Link)`
+  color: #000;
   & > img {
     margin: 0;
   }
@@ -83,21 +89,20 @@ const LinkItem = styled(Link)`
   border-radius: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: #fff;
-  flex: 1;
   @media ${device.mobileS} {
     width: calc(${width - 20}px);
     margin: 10px;
-    /* height: 80px; */
+    height: 80px;
   }
   @media ${device.mobileL} {
     width: calc(${width - 20}px);
     margin: 10px;
-    /* height: 80px; */
+    height: 80px;
   }
   @media ${device.mobileM} {
     width: calc(${width - 20}px);
     margin: 10px;
-    /* height: 80px; */
+    height: 80px;
   }
   @media ${device.tablet} {
     width: calc(${width - 20}px);
@@ -125,6 +130,105 @@ function ListPage(props) {
   const { pathname } = window.location;
   // eslint-disable-next-line react/prop-types
   const { programSlug, level } = props.match.params;
+
+  // state
+  const [items, setItems] = useState([]);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const [page, setPage] = useState(1);
+
+  /**
+   * Fetch data, loadmore, refresh & hooks
+   */
+
+  const fetchItems = async (filter, more = false) => {
+    let list = [];
+    const headers = await authHeader();
+    const requestOptions = {
+      method: 'GET',
+      headers,
+    };
+    let url = `${apiConfig.baseUrl}${apiConfig.apiEndpoint}/${
+      PROGRAM_API_ENDPOINTS[programSlug]
+    }`;
+    if (_.get(filter, 'page')) {
+      url += `&page=${_.get(filter, 'page')}`;
+    }
+    if (_.get(filter, 'limit')) {
+      url += `&limit=${_.get(filter, 'limit')}`;
+    }
+    if (_.get(filter, 'level')) {
+      url += `&level=${_.get(filter, 'level')}`;
+    }
+    try {
+      const response = await fetch(url, requestOptions);
+      const data = await response.json();
+      if (data.code) {
+      } else {
+        list = data.results;
+        console.log(data);
+        setHasMore(data.page < data.totalPages);
+        if (_.isEmpty(list)) {
+          const msg = 'Chưa có mục nào được tạo. Vui lòng quay lại sau';
+        } else {
+        }
+      }
+    } catch (error) {}
+    return list;
+  };
+
+  const loadMore = () => {
+    console.log('Loading more...');
+    const load = async () => {
+      setLoadingMore(true);
+      const filter = { limit: 20, page: page + 1, level };
+      const more = true;
+      const results = await fetchItems(filter, more);
+      const currentItems = [...items];
+      if (!_.isEmpty(results)) {
+        const newList = _.concat(currentItems, results);
+        setItems(newList);
+        setPage(page + 1);
+      }
+      setTimeout(() => {
+        setLoadingMore(false);
+      }, 2000);
+    };
+    load();
+  };
+
+  // refresh
+  const refresh = () => {
+    const load = async () => {
+      setRefreshing(true);
+      const filter = { limit: 20, page: 1, level };
+      const more = true;
+      const results = await fetchItems(filter, more);
+      if (!_.isEmpty(results)) {
+        setItems(results);
+        setPage(1);
+        setScrolled(false); // re-init the list
+      }
+      setTimeout(() => {
+        setRefreshing(false);
+      }, 2000);
+    };
+    load();
+  };
+
+  // load data for the first time
+  useEffect(() => {
+    setPage(prev => 1);
+    const loadData = async () => {
+      const filter = { limit: 20, level, page: 1 };
+      const results = await fetchItems(filter);
+      setItems(results);
+    };
+    loadData();
+  }, [level]);
+
   return (
     <>
       <Helmet>
@@ -134,129 +238,44 @@ function ListPage(props) {
           content="Học tiếng Nhật Nihongo365 mỗi ngày và luyện thi JLPT N5, N4, N3, N2, N1. Nihongo365 giúp bạn học từ vựng, kanji, ngữ pháp, nghe, hội thoại, đọc hiểu. Bên cạnh đó luyện thi theo format đề thi JLPQ quốc tế"
         />
       </Helmet>
-      <Menu>
-        <LinkItem to={`${pathname}/N5`}>
-          <img
-            // eslint-disable-next-line global-require
-            src={require('../../images/N5.png')}
-            alt="Từ vựng tiếng Nhật Nihongo365"
-            width="auto"
-            // height="70"
-            style={{ margin: 10, height: '32px' }}
-          />
-          <span
+      <InfiniteScroll
+        dataLength={items.length} // This is important field to render the next data
+        next={loadMore}
+        hasMore={hasMore}
+        loader={
+          <h4
             style={{
-              borderRadius: '50%',
-              border: '2px solid',
-              borderColor: 'rgba(241, 130, 141,1)',
-              width: 30,
-              height: 30,
-              display: 'flex' /* or inline-flex */,
-              alignItems: 'center',
-              justifyContent: 'center',
+              textAlign: 'center',
+              width: 'calc(100vw - 10px)',
+              marginLeft: '5px',
             }}
           >
-            N5
-          </span>
-        </LinkItem>
-        <LinkItem to={`${pathname}/N4`}>
-          <img
-            // eslint-disable-next-line global-require
-            src={require('../../images/N4.png')}
-            alt="Kanji Nihongo365"
-            width="auto"
-            // height="70"
-            style={{ margin: 10, height: '48px' }}
-          />
-          <span
-            style={{
-              borderRadius: '50%',
-              border: '2px solid',
-              borderColor: 'rgba(165, 55, 253, 1)',
-              width: 30,
-              height: 30,
-              display: 'flex' /* or inline-flex */,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            N4
-          </span>
-        </LinkItem>
-        <LinkItem to={`${pathname}/N3`}>
-          <img
-            // eslint-disable-next-line global-require
-            src={require('../../images/N3.png')}
-            alt="Ngữ pháp Nihongo365"
-            width="auto"
-            // height="70"
-            style={{ margin: 10, height: '48px' }}
-          />
-          <span
-            style={{
-              borderRadius: '50%',
-              border: '2px solid',
-              borderColor: 'rgba(0, 181, 204, 1)',
-              width: 30,
-              height: 30,
-              display: 'flex' /* or inline-flex */,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            N3
-          </span>
-        </LinkItem>
-        <LinkItem to={`${pathname}/N2`}>
-          <img
-            // eslint-disable-next-line global-require
-            src={require('../../images/N2.png')}
-            alt="Luyện nghe JLPT"
-            width="auto"
-            // height="70"
-            style={{ margin: 10, height: '48px' }}
-          />
-          <span
-            style={{
-              borderRadius: '50%',
-              border: '2px solid',
-              borderColor: 'rgba(63, 195, 128, 1)',
-              width: 30,
-              height: 30,
-              display: 'flex' /* or inline-flex */,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            N2
-          </span>
-        </LinkItem>
-        <LinkItem to={`${pathname}/N1`}>
-          <img
-            // eslint-disable-next-line global-require
-            src={require('../../images/N1.png')}
-            alt="Luyện hội thoại JLPT"
-            width="auto"
-            // height="70"
-            style={{ margin: 10, height: '48px' }}
-          />
-          <span
-            style={{
-              borderRadius: '50%',
-              border: '2px solid',
-              borderColor: 'rgba(241, 90, 34, 1)',
-              width: 30,
-              height: 30,
-              display: 'flex' /* or inline-flex */,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            N1
-          </span>
-        </LinkItem>
-        <BottomSeperator />
-      </Menu>
+            Đang tải...
+          </h4>
+        }
+        endMessage={
+          <p style={{ textAlign: 'center' }}>
+            <b>Tất cả bài trong chuyên mục đã được hiển thị</b>
+          </p>
+        }
+        // below props only if you need pull down functionality
+        refreshFunction={refresh}
+        pullDownToRefresh
+        pullDownToRefreshThreshold={100}
+        pullDownToRefreshContent={
+          <h3 style={{ textAlign: 'center' }}>&#8595; Vuốt xuống để tải lại</h3>
+        }
+        releaseToRefreshContent={
+          <h3 style={{ textAlign: 'center' }}>&#8595; Vuốt xuống để tải lại</h3>
+        }
+      >
+        <Menu>
+          {items.map(item => (
+            <LinkItem>{item.title}</LinkItem>
+          ))}
+          <BottomSeperator />
+        </Menu>
+      </InfiniteScroll>
     </>
   );
 }
