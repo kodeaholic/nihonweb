@@ -25,6 +25,7 @@ import {
 import Header from '../../components/Header';
 import ProgramPage from '../ProgramPage/Loadable';
 import LevelPage from '../LevelPage/Loadable';
+import ListPage from '../ListPage/Loadable';
 
 // eslint-disable-next-line no-unused-vars
 const { width } = getWindowDimensions();
@@ -194,14 +195,8 @@ export default function App() {
             <Redirect to="/hoc" />
           </Route>
           <Route exact path="/hoc" component={ProgramPage} />
-          <Route exact path="/hoc/tu-vung" component={LevelPage} />
-          <Route exact path="/hoc/kanji" component={LevelPage} />
-          <Route exact path="/hoc/ngu-phap" component={LevelPage} />
-          <Route exact path="/hoc/luyen-nghe" component={LevelPage} />
-          <Route exact path="/hoc/hoi-thoai" component={LevelPage} />
-          <Route exact path="/hoc/luyen-doc" component={LevelPage} />
-          <Route exact path="/hoc/luyen-thi" component={LevelPage} />
-          <Route exact path="/hoc/thi-thu" component={LevelPage} />
+          <Route exact path="/hoc/:programSlug" component={LevelPage} />
+          <Route exact path="/hoc/:programSlug/:level" component={ListPage} />
           <Route path="" component={NotFoundPage}>
             {/* <Redirect to="/" /> */}
           </Route>

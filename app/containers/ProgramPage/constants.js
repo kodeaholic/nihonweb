@@ -20,4 +20,15 @@ export const PROGRAM_TYPES = {
   8: 'THITHU',
 };
 
+export const PROGRAM_SLUGS = {
+  'tu-vung': 'Từ vựng',
+  kanji: 'Chữ Hán',
+  'ngu-phap': 'Ngữ pháp',
+  'luyen-nghe': 'Luyện nghe',
+  'hoi-thoai': 'Hội thoại',
+  'luyen-doc': 'Luyện đọc',
+  'luyen-thi': 'Luyện thi',
+  'thi-thu': 'Thi thử',
+};
+
 export const PROGRAM_SELECTED = 'boilerplate/ProgramPage/PROGRAM_SELECTED';
