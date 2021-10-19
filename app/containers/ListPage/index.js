@@ -168,7 +168,6 @@ function ListPage(props) {
       if (data.code) {
       } else {
         list = data.results;
-        console.log(data);
         setHasMore(data.page < data.totalPages);
         if (_.isEmpty(list)) {
           const msg = 'Chưa có mục nào được tạo. Vui lòng quay lại sau';
@@ -180,7 +179,6 @@ function ListPage(props) {
   };
 
   const loadMore = () => {
-    console.log('Loading more...');
     const load = async () => {
       setLoadingMore(true);
       const filter = { limit: 20, page: page + 1, level };
@@ -238,44 +236,57 @@ function ListPage(props) {
           content="Học tiếng Nhật Nihongo365 mỗi ngày và luyện thi JLPT N5, N4, N3, N2, N1. Nihongo365 giúp bạn học từ vựng, kanji, ngữ pháp, nghe, hội thoại, đọc hiểu. Bên cạnh đó luyện thi theo format đề thi JLPQ quốc tế"
         />
       </Helmet>
-      <InfiniteScroll
-        dataLength={items.length} // This is important field to render the next data
-        next={loadMore}
-        hasMore={hasMore}
-        loader={
-          <h4
-            style={{
-              textAlign: 'center',
-              width: 'calc(100vw - 10px)',
-              marginLeft: '5px',
-            }}
-          >
-            Đang tải...
-          </h4>
-        }
-        endMessage={
-          <p style={{ textAlign: 'center' }}>
-            <b>Tất cả bài trong chuyên mục đã được hiển thị</b>
-          </p>
-        }
-        // below props only if you need pull down functionality
-        refreshFunction={refresh}
-        pullDownToRefresh
-        pullDownToRefreshThreshold={100}
-        pullDownToRefreshContent={
-          <h3 style={{ textAlign: 'center' }}>&#8595; Vuốt xuống để tải lại</h3>
-        }
-        releaseToRefreshContent={
-          <h3 style={{ textAlign: 'center' }}>&#8595; Vuốt xuống để tải lại</h3>
-        }
+      <div
+        id="scrollableDiv"
+        style={{
+          overflow: 'auto',
+          display: 'flex',
+        }}
       >
-        <Menu>
-          {items.map(item => (
-            <LinkItem>{item.title}</LinkItem>
-          ))}
-          <BottomSeperator />
-        </Menu>
-      </InfiniteScroll>
+        <InfiniteScroll
+          scrollableTarget="scrollableDiv"
+          dataLength={items.length} // This is important field to render the next data
+          next={loadMore}
+          hasMore={hasMore}
+          loader={
+            <h4
+              style={{
+                textAlign: 'center',
+                width: 'calc(100vw - 10px)',
+                marginLeft: '5px',
+              }}
+            >
+              Đang tải...
+            </h4>
+          }
+          endMessage={
+            <p style={{ textAlign: 'center', width: 'calc(100vw)' }}>
+              <b>Tất cả bài trong chuyên mục đã được hiển thị</b>
+            </p>
+          }
+          // below props only if you need pull down functionality
+          refreshFunction={refresh}
+          pullDownToRefresh
+          pullDownToRefreshThreshold={100}
+          pullDownToRefreshContent={
+            <h3 style={{ textAlign: 'center' }}>
+              &#8595; Vuốt xuống để tải lại
+            </h3>
+          }
+          releaseToRefreshContent={
+            <h3 style={{ textAlign: 'center' }}>
+              &#8595; Vuốt xuống để tải lại
+            </h3>
+          }
+        >
+          <Menu>
+            {items.map(item => (
+              <LinkItem>{item.title}</LinkItem>
+            ))}
+            <BottomSeperator />
+          </Menu>
+        </InfiniteScroll>
+      </div>
     </>
   );
 }
