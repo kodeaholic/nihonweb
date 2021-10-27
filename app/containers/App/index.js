@@ -26,11 +26,11 @@ import Header from '../../components/Header';
 import ProgramPage from '../ProgramPage/Loadable';
 import LevelPage from '../LevelPage/Loadable';
 import ListPage from '../ListPage/Loadable';
+import KanjiPage from '../KanjiPage/Loadable';
 
 // eslint-disable-next-line no-unused-vars
 const { width } = getWindowDimensions();
 const height = getInnerHeight();
-console.log(height);
 const AppWrapper = styled.div`
   width: calc(100vw);
   margin: 0 auto;
@@ -197,6 +197,11 @@ export default function App() {
           <Route exact path="/hoc" component={ProgramPage} />
           <Route exact path="/hoc/:programSlug" component={LevelPage} />
           <Route exact path="/hoc/:programSlug/:level" component={ListPage} />
+          <Route
+            exact
+            path="/hoc/kanji/:level/:slug.html"
+            component={KanjiPage}
+          />
           <Route path="" component={NotFoundPage}>
             {/* <Redirect to="/" /> */}
           </Route>

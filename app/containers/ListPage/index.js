@@ -280,9 +280,22 @@ function ListPage(props) {
           }
         >
           <Menu>
-            {items.map(item => (
-              <LinkItem>{item.title}</LinkItem>
-            ))}
+            {items.map(item => {
+              let redirectTo = '';
+              switch (programSlug) {
+                case 'kanji':
+                  redirectTo = `${pathname}/${item.slug}.html`;
+                  break;
+                default:
+                  redirectTo = '';
+                  break;
+              }
+              return (
+                <LinkItem to={redirectTo} key={`${programSlug}-${item.slug}`}>
+                  {item.title}
+                </LinkItem>
+              );
+            })}
             <BottomSeperator />
           </Menu>
         </InfiniteScroll>
